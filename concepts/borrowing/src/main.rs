@@ -24,12 +24,39 @@ fn main() {
     let a = [1, 2, 3, 4, 5];
     let slice = &a[1..3];
     println!("Slice: {:?}", slice);
-}
 
+
+    let mut before = String::from("hello world!");
+    make_loud(&mut before);
+    println!("before -> , {}", before);
+    // println!("after -> , {}", make_loud(&before));
+    println!("count ->, {}", vowel_count(&before));
+}
+fn make_loud_correct(s: &mut String) -> String {
+    *s = s.to_uppercase();
+
+    if !s.ends_with('!') {
+        s.push('!');
+    }
+
+    s.clone()
+}
 fn calculate_length(s: &String) -> usize {
     s.len()
 }
 
 fn change(s: &mut String) {
     s.push_str(" world");
+}
+
+// Count the vowels (a, e, i, o, u, in either case) in the borrowed text.
+fn vowel_count(s: &str) -> usize {
+    // TODO: walk the characters and count the vowels
+    0
+}
+
+// Change the caller's String in place: make it uppercase, then make sure
+// it ends with '!' (add one only if it does not already end in '!').
+fn make_loud(s: &mut String) {
+    // TODO: modify the String behind the mutable reference
 }
