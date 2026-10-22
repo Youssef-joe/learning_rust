@@ -6,6 +6,23 @@ struct User {
     active: bool,
 }
 
+// let's impl
+struct Span {
+    start: i32,
+    end: i32,
+}
+impl Span {
+    fn hour(start: i32) -> Span {
+        Span{start, end: start + 1}
+    }
+}
+
+struct Personin {
+    start: i32,
+    username: String,
+    age: i32
+}
+
 // Enums
 enum IpAddrKind {
     V4,
@@ -26,6 +43,9 @@ fn main() {
         sign_in_count: 1,
     };
     println!("User: {} <{}>", user1.username, user1.email);
+
+    // using impl
+    let launch = Span::hour(20);
 
     // Using enum
     let home = IpAddr::V4(127, 0, 0, 1);
